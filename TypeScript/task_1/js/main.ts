@@ -7,17 +7,23 @@ export interface Teacher {
   [property: string]: any;
 }
 
-interface Directors extends Teacher {
+export interface Directors extends Teacher {
 // Additionnal property for Directors
 numberOfReports: number;
 }
 
-// Example usage
-const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
-  fullTimeEmployee: true,
-  numberOfReports: 17,
-};
-console.log(director1);
+export interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+
+// Define the printTeacher function
+ const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  const firstLetter = firstName.charAt(0).toUpperCase();
+  const fullLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
+
+  return `${firstLetter}.${fullLastName}`;
+ }
+
+ //usage
+ console.log(printTeacher("John", "Doe"));
