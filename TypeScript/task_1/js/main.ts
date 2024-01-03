@@ -7,13 +7,17 @@ export interface Teacher {
   [property: string]: any;
 }
 
+interface Directors extends Teacher {
+// Additionnal property for Directors
+numberOfReports: number;
+}
+
 // Example usage
-const teacher3: Teacher = {
+const director1: Directors = {
   firstName: 'John',
-  fullTimeEmployee: false,
   lastName: 'Doe',
   location: 'London',
-  contract: false,
+  fullTimeEmployee: true,
+  numberOfReports: 17,
 };
-
-console.log(teacher3);
+console.log(director1);
