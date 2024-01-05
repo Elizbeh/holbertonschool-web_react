@@ -54,6 +54,17 @@ export function executeWork(employee: Director | Teacher): string {
   }
 }
 
-//Example usage
-executeWork(createEmployee(200));
-executeWork(createEmployee(1000)); 
+export type Subjects = 'Math' | 'History';
+
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History'
+  }
+}
+
+
+//Example Usage
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
