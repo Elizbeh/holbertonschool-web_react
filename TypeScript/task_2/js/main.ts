@@ -14,7 +14,7 @@ class Director implements DirectorInterface {
   workFromHome(): string {
     return "Working from home";
   }
-  getToWork(): string {
+  getCoffeeBreak(): string {
     return "Getting a coffee break";
   }
   workDirectorTasks(): string {
@@ -42,7 +42,18 @@ function createEmployee(salary: number | string): Director | Teacher {
   }
 }
 
-// CreateEmployee function testing
-console.log(createEmployee(200));
-console.log(createEmployee(1000)); 
-console.log(createEmployee('$500'));
+export function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+export function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
+//Example usage
+executeWork(createEmployee(200));
+executeWork(createEmployee(1000)); 

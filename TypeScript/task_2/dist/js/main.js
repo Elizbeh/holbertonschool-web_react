@@ -4,7 +4,7 @@ var Director = /** @class */ (function () {
     Director.prototype.workFromHome = function () {
         return "Working from home";
     };
-    Director.prototype.getToWork = function () {
+    Director.prototype.getCoffeeBreak = function () {
         return "Getting a coffee break";
     };
     Director.prototype.workDirectorTasks = function () {
