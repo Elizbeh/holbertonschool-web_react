@@ -1,0 +1,65 @@
+body{
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+}
+
+.App-logo {
+height: 240px;
+pointer-events: none;
+}
+
+.App-header {
+display: flex;
+color: #e2474c;
+position: relative;
+align-items: center;
+}
+
+.App-header img {
+  width: 200px;
+  height: 200px;
+}
+
+.App-header:after {
+  content: "";
+  position: absolute;
+  border-bottom: solid 2px #e2474c;;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  border-bottom: solid 2px #e2474c;;
+  left: 0;
+  width: 100%;
+}
+.App-body {
+  display: flex;
+}
+
+.App-body p {
+  margin-left: 30px;
+}
+
+.App-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.App-footer p {
+  font-style: italic;
+}
