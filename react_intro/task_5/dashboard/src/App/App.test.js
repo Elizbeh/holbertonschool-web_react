@@ -1,7 +1,8 @@
-// task_3/dashboard/src/App.test.js
+jest.mock('../assets/holberton-logo.png', () => 'holberton-logo.png');
+
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import App from '../../src/App/App';
 
 test('App renders without crashing', () => {
   const wrapper = shallow(<App />);

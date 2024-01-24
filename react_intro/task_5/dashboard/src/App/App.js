@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
-import holbertonLogo from './holberton-logo.png';
-import { getFullYear, getFooterCopy } from './utils';
+import '../App/App.css';
+import holbertonLogo from '../assets/holberton-logo.png';
+import { getFooterCopy, getFullYear } from '../utils/utils';
 
 function App() {
   return (

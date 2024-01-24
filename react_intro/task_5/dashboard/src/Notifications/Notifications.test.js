@@ -1,7 +1,6 @@
-// task_3/dashboard/src/Notifications.test.js
 import React from 'react';
 import { shallow } from 'enzyme';
-import Notifications from './Notifications';
+import Notifications from '../../src/Notifications/Notifications';
 
 test('Notifications renders without crashing', () => {
   const wrapper = shallow(<Notifications />);
