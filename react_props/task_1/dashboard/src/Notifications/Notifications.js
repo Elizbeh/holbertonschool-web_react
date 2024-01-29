@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../src/App/App.css';
+import '../../src/Notifications/Notifications.css';
 import { getLatestNotification } from '../utils/utils';
 
 function Notifications() {
