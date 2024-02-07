@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Notifications from '../../src/Notifications/Notifications';
+import Notifications from './Notifications';
 
 test('Notifications renders without crashing', () => {
   const wrapper = shallow(<Notifications />);

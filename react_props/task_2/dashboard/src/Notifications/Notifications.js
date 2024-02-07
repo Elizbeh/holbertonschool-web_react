@@ -1,5 +1,6 @@
+// src/Notifications/Notifications.js
 import React from 'react';
-import '../../src/Notifications/Notifications.css';
+import NotificationItem from './NotificationItem';
 import { getLatestNotification } from '../utils/utils';
 
 function Notifications() {
@@ -16,15 +17,15 @@ function Notifications() {
                     cursor: "pointer"
                 }}
                 aria-label="Close"
-                onClick={ () => {
+                onClick={() => {
                     console.log("Close button has been clicked\n");
                 }}
             >x</button>
             <p>Here is the list of notifications</p>
             <ul>
-                <li data-priority="default">New course available</li>
-                <li data-priority="urgent">New resume available</li>
-                <li data-priority="urgent" dangerouslySetInnerHTML={{__html: getLatestNotification()}}></li>
+                <NotificationItem type="default" value="New course available" />
+                <NotificationItem type="urgent" value="Urgent requirement - complete by EOD" />
+                <NotificationItem type="urgent" html={{ __html: getLatestNotification() }} />
             </ul>
         </div>
     );

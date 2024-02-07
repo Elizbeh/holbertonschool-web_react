@@ -1,12 +1,13 @@
+// App.test.js
 jest.mock('../assets/holberton-logo.png', () => 'holberton-logo.png');
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from '../../src/App/App';
-import Notifications from '../../src/Notifications/Notifications';
-import Header from '../../src/Header/Header';
-import Login from '../../src/Login/Login';
-import Footer from '../../src/Footer/Footer';
+import App from './App';
+import Notifications from '../Notifications/Notifications';
+import Header from '../Header/Header';
+import Login from '../Login/Login';
+import Footer from '../Footer/Footer';
 
 test('App renders without crashing', () => {
   const wrapper = shallow(<App />);
