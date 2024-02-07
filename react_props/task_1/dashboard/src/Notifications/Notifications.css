@@ -1,4 +1,4 @@
-@import '../Header.css';
+@import '../Header/Header.css';
 
 .Notifications {
     border: 2px dotted var(--holberton-red);
