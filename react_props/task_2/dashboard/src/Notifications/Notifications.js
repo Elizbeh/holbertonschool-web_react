@@ -1,5 +1,5 @@
-// src/Notifications/Notifications.js
 import React from 'react';
+import './Notifications.css'
 import NotificationItem from './NotificationItem';
 import { getLatestNotification } from '../utils/utils';
 
