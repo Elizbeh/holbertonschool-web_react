@@ -11,7 +11,6 @@ class App extends Component {
     super(props);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
-
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
   }
