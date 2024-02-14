@@ -13,6 +13,7 @@ class App extends Component {
     super(props);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
+
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
   }
@@ -36,13 +37,18 @@ class App extends Component {
       <div>
         <Notifications />
         <Header />
-        {isLoggedIn ? <CourseList /> : <Login />}
-        <BodySection title="test">
-          <p>test</p>
+        {isLoggedIn ? (
+          <BodySectionWithMarginBottom title="Course list">
+            <CourseList />
+          </BodySectionWithMarginBottom>
+        ) : (
+          <BodySectionWithMarginBottom title="Log in to continue">
+            <Login />
+          </BodySectionWithMarginBottom>
+        )}
+        <BodySection title="News from the School">
+          <p>Some random text about news from the school.</p>
         </BodySection>
-        <BodySectionWithMarginBottom title="test">
-          <p>test</p>
-        </BodySectionWithMarginBottom>
         <Footer />
       </div>
     );
