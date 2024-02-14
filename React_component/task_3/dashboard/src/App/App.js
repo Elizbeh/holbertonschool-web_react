@@ -6,6 +6,7 @@ import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import CourseList from '../CourseList/CourseList';
 import BodySection from '../BodySection/BodySection';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 
 class App extends Component {
   constructor(props) {
@@ -39,6 +40,9 @@ class App extends Component {
         <BodySection title="test">
           <p>test</p>
         </BodySection>
+        <BodySectionWithMarginBottom title="test">
+          <p>test</p>
+        </BodySectionWithMarginBottom>
         <Footer />
       </div>
     );
