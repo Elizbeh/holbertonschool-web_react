@@ -1,19 +1,22 @@
+// Notifications.js
 import React, { Component } from 'react';
 import './Notifications.css';
 import NotificationItem from '../Notifications/NotificationItem';
 import { getLatestNotification } from '../utils/utils';
+import WithLogging from '../HOC/WithLogging';
 
 class Notifications extends Component {
   constructor(props) {
-    super();
-    this.markAsRead = this.markAsRead.bind(this)
+    super(props);
+    this.markAsRead = this.markAsRead.bind(this);
   }
+
   markAsRead(id) {
-    console.log(`Notification ${id} has been marked as read`)
+    console.log(`Notification ${id} has been marked as read`);
   }
+
   render() {
     const { displayDrawer } = this.props;
-
     return (
       <div className='container'>
         <div className={`menuItem${displayDrawer ? ' display-menuItem' : ''}`}>
@@ -40,10 +43,10 @@ class Notifications extends Component {
           <p>Here is the list of notifications</p>
           <ul>
             <NotificationItem
-            id={1}
-            type="default"
-            value="New course available"
-             markAsRead={this.markAsRead}
+              id={1}
+              type="default"
+              value="New course available"
+              markAsRead={this.markAsRead}
             />
             <NotificationItem
               id={2}
@@ -68,4 +71,4 @@ Notifications.defaultProps = {
   displayDrawer: false,
 };
 
-export default Notifications;
+export default WithLogging(Notifications, 'Notifications');

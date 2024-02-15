@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 import CourseList from '../CourseList/CourseList';
 import BodySection from '../BodySection/BodySection';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
-
+import WithLogging from '../HOC/WithLogging';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -65,4 +65,4 @@ App.defaultProps = {
   logOut: () => {},
 };
 
-export default App;
+export default WithLogging(App);
