@@ -1,0 +1,35 @@
+.Notifications {
+    border: 2px dotted var(--holberton-red);
+    padding: 0.1rem 0 1rem;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Notifications button {
+    padding-top: 1rem;
+}
+
+.container {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    position: absolute;
+    width: 99%;
+}
+.menuItem {
+    display: flex;
+    margin-right: 20px;
+}
+
+.Notifications:not(.display-drawer) {
+    display: none;
+}
+.Notifications li[data-priority="default"] {
+    color: darkblue;
+  }
+  
+  .Notifications li[data-priority="urgent"] {
+    color: red;
+  }
+  
