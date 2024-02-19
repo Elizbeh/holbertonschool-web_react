@@ -11,12 +11,17 @@ class Notifications extends Component {
     this.markAsRead = this.markAsRead.bind(this);
   }
 
+  shouldComponentUpdate(nextProps) {
+    // Only update if the length of the new listNotifications is longer than the current one
+    return nextProps.listNotifications.length > this.props.listNotifications.length;
+  }
+
   markAsRead(id) {
     console.log(`Notification ${id} has been marked as read`);
   }
 
   render() {
-    const { displayDrawer } = this.props;
+    const { displayDrawer, listNotifications } = this.props;
     return (
       <div className='container'>
         <div className={`menuItem${displayDrawer ? ' display-menuItem' : ''}`}>
@@ -42,24 +47,16 @@ class Notifications extends Component {
           </button>
           <p>Here is the list of notifications</p>
           <ul>
-            <NotificationItem
-              id={1}
-              type="default"
-              value="New course available"
-              markAsRead={this.markAsRead}
-            />
-            <NotificationItem
-              id={2}
-              type="urgent"
-              value="Urgent requirement - complete by EOD"
-              markAsRead={this.markAsRead}
-            />
-            <NotificationItem
-              id={3}
-              type="urgent"
-              html={{ __html: getLatestNotification() }}
-              markAsRead={this.markAsRead}
-            />
+            {listNotifications.map((notification) => (
+              <NotificationItem
+                key={notification.id}
+                id={notification.id}
+                type={notification.type}
+                value={notification.value}
+                html={notification.html}
+                markAsRead={this.markAsRead}
+              />
+            ))}
           </ul>
         </div>
       </div>
@@ -69,6 +66,7 @@ class Notifications extends Component {
 
 Notifications.defaultProps = {
   displayDrawer: false,
+  listNotifications: [],
 };
 
 export default WithLogging(Notifications, 'Notifications');
