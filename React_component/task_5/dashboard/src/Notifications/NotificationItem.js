@@ -8,7 +8,7 @@ class NotificationItem extends PureComponent {
     }
 
     handleClick() {
-      const { markAsRead, id } = this.props;
+      const { id, markAsRead} = this.props;
       markAsRead(id);  
     }
 
