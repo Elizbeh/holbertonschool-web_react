@@ -1,42 +1,82 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import NotificationItem from './NotificationItem';
+import { getLatestNotification } from '../utils/utils';
+import WithLogging from '../HOC/WithLogging';
 
-class NotificationItem extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
+class Notifications extends Component {
+  constructor(props) {
+    super(props);
+    this.markAsRead = this.markAsRead.bind(this);
+  }
 
-    handleClick() {
-      const { id, markAsRead} = this.props;
-      markAsRead(id);  
-    }
+  shouldComponentUpdate(nextProps) {
+    return nextProps.listNotifications.length !== this.props.listNotifications.length;
+  }
 
-    render() {
-    const { type, html, value } = this.props; 
-    
+  markAsRead(id) {
+    console.log(`Notification ${id} has been marked as read`);
+  }
+
+  render() {
+    const { displayDrawer, listNotifications } = this.props;
+
     return (
-        <li
-          data-notification-type={type}
-          dangerouslySetInnerHTML={html}
-          onClick={this.handleClick}
-        >
-          {value}
-        </li>
-      );
-    };
+      <div className="container">
+        <div className={`menuItem${displayDrawer ? ' display-menuItem' : ''}`}>
+          Your notifications
+        </div>
+        <div className={`Notifications${displayDrawer ? ' display-drawer' : ''}`}>
+          <button
+            style={{
+              position: 'absolute',
+              right: '16px',
+              top: '.8rem',
+              fontSize: '16px',
+              border: 'none',
+              background: 'none',
+              cursor: 'pointer',
+            }}
+            aria-label="Close"
+            onClick={() => {
+              console.log('Close button has been clicked\n');
+            }}
+          >
+            x
+          </button>
+          <p>Here is the list of notifications</p>
+          <ul>
+            {listNotifications.map((notification) => (
+              <NotificationItem
+                key={notification.id}
+                type={notification.type}
+                value={notification.value}
+                html={notification.html}
+                markAsRead={this.markAsRead}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  }
 }
 
-NotificationItem.propTypes = {
-    id: PropTypes.number.isRequired,
-    type: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    html: PropTypes.object,
-    markAsRead: PropTypes.func.isRequired,
-  };
-  
-  NotificationItem.defaultProps = {
-    html: null,
-  };
+Notifications.propTypes = {
+  displayDrawer: PropTypes.bool.isRequired,
+  listNotifications: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      type: PropTypes.string.isRequired,
+      value: PropTypes.string,
+      html: PropTypes.object,
+    })
+  ).isRequired,
+};
 
-export default NotificationItem;
+Notifications.defaultProps = {
+  displayDrawer: false,
+  listNotifications: [],
+};
+
+export default WithLogging(Notifications, 'Notifications');
