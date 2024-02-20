@@ -1,6 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Notifications from './Notifications';
+import { StyleSheetTestUtils } from 'aphrodite';
+
+// ...
+
+beforeAll(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
 
 test('Notifications renders without crashing', () => {
   const wrapper = shallow(<Notifications />);
