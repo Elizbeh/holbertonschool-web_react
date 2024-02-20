@@ -1,6 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import CourseListRow from '../CourseList/CourseListRow';
+import { StyleSheetTestUtils } from 'aphrodite';
+
+// ...
+
+beforeAll(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+
 
 describe('CourseListRow', () => {
   it('renders one cell with colspan = 2 when textSecondCell does not exist', () => {
