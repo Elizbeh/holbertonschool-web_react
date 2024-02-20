@@ -2,6 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Login from '../Login/Login';
 
+import { StyleSheetTestUtils } from 'aphrodite';
+
+// ...
+
+beforeAll(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+
 describe('Login Component', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(<Login />);
