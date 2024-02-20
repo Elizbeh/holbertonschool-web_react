@@ -2,6 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import CourseList from '../CourseList/CourseList';
 import CourseListRow from '../CourseList/CourseListRow';
+import { StyleSheetTestUtils } from 'aphrodite';
+
+
+beforeAll(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
 
 describe('CourseList', () => {
   it('renders CourseList component without crashing', () => {

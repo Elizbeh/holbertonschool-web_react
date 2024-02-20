@@ -24,10 +24,10 @@ class Notifications extends Component {
     const { displayDrawer, listNotifications } = this.props;
     return (
       <div className='container'>
-        <div className={`menuItem${displayDrawer ? ' display-menuItem' : ''}`}>
+        <div className={css(styles.menuItem)}>
           Your notifications
         </div>
-        <div className={`Notifications${displayDrawer ? ' display-drawer' : ''}`}>
+        <div className={css(styles.notifications)}>
           <button
             style={{
               position: 'absolute',
@@ -63,6 +63,24 @@ class Notifications extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  notifications: {
+    border: '2px dotted #e1484c',
+    padding: '1rem .5rem 0 .5rem',
+    float: 'right',
+  },
+  menuItem: {
+    textAlign: 'right',
+  }
+
+});
+
+Notifications.propTypes = {
+  displayDrawer: PropTypes.bool,
+  listNotifications: PropTypes.arrayOf(NotificationItemShape),
+};
+
 
 Notifications.defaultProps = {
   displayDrawer: false,
