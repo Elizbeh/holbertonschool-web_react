@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#e1484c',
+    justifyContent: 'center',
     margin: 'auto auto auto 0',
   },
 });
