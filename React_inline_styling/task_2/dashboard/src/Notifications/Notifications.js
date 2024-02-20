@@ -1,6 +1,6 @@
-// Notifications.js
 import React, { Component } from 'react';
-import { StyleSheet, css } from 'aphrodite';
+import PropTypes from 'prop-types'
+import {StyleSheet,css} from 'aphrodite'
 import NotificationItem from '../Notifications/NotificationItem';
 import { getLatestNotification } from '../utils/utils';
 import WithLogging from '../HOC/WithLogging';
@@ -23,13 +23,21 @@ class Notifications extends Component {
   render() {
     const { displayDrawer, listNotifications } = this.props;
     return (
-      <div className={css(styles.container)}>
-        <div className={`${css(styles.menuItem)}${displayDrawer ? ` ${css(styles.displayMenuItem)}` : ''}`}>
+      <div className='container'>
+        <div className={css(styles.menuItem)}>
           Your notifications
         </div>
-        <div className={`${css(styles.Notifications)}${displayDrawer ? ` ${css(styles.displayDrawer)}` : ''}`}>
+        <div className={css(styles.notifications)}>
           <button
-            className={css(styles.closeButton)}
+            style={{
+              position: 'absolute',
+              right: '16px',
+              top: '.8rem',
+              fontSize: '16px',
+              border: 'none',
+              background: 'none',
+              cursor: 'pointer',
+            }}
             aria-label="Close"
             onClick={() => {
               console.log('Close button has been clicked\n');
@@ -57,25 +65,22 @@ class Notifications extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    // Add your container styles here
+  notifications: {
+    border: '2px dotted #e1484c',
+    padding: '1rem .5rem 0 .5rem',
+    float: 'right',
   },
   menuItem: {
-    // Add your menuItem styles here
-  },
-  displayMenuItem: {
-    // Add your displayMenuItem styles here
-  },
-  Notifications: {
-    // Add your Notifications styles here
-  },
-  displayDrawer: {
-    // Add your displayDrawer styles here
-  },
-  closeButton: {
-    // Add your closeButton styles here
-  },
+    textAlign: 'right',
+  }
+
 });
+
+Notifications.propTypes = {
+  displayDrawer: PropTypes.bool,
+  listNotifications: PropTypes.arrayOf(NotificationItemShape),
+};
+
 
 Notifications.defaultProps = {
   displayDrawer: false,

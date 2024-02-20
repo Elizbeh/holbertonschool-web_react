@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Notifications from '../Notifications/Notifications';
+import Notifications from './Notifications/Notifications';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
@@ -8,6 +8,7 @@ import CourseList from '../CourseList/CourseList';
 import BodySection from '../BodySection/BodySection';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 import WithLogging from '../HOC/WithLogging';
+
 class App extends Component {
   constructor(props) {
     super(props);
