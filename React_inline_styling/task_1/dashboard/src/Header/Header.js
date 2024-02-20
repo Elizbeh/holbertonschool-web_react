@@ -1,6 +1,5 @@
 import React from 'react'
 import holbertonLogo from '../assets/holberton-logo.png';
-import '../Header/Header.css';
 function Header() {
   return (
     <div className="App">
