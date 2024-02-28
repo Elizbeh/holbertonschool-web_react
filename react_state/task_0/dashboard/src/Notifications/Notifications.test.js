@@ -1,32 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Notifications from './Notifications';
+import NotificationItem from './NotificationItem';
 import { StyleSheetTestUtils } from 'aphrodite';
 
 // ...
 
 beforeAll(() => {
   StyleSheetTestUtils.suppressStyleInjection();
-});
-
-
-test('Default state for displayDrawer is false', () => {
-  const handleDisplayerDrawerMock = jest.fn();
-  const wrapper = shallow(<Notifications handleDisplayerDrawer={handleDisplayerDrawerMock} />);
-  wrapper.find(`.${css(styles.menuItems)}`).simulate('click');
-  expect(handleDisplayerDrawerMock).toHaveBeenCalled;
-});
-
-test('Clicking on the button calls handleHideDrawer', () => {
-  const handleHideDrawerMock = jest.fn();
-  const wrapper = shallow(<Notifications handleHideDrawer={handleHideDrawerMock} />);
-  wrapper.find('button').simulate('click');
-  expect(handleHideDrawerMock).toHaveBeenCalled();
-});
-
-test('Notifications renders without crashing', () => {
-  const wrapper = shallow(<Notifications />);
-  expect(wrapper.exists()).toBe(true);
 });
 
 test('Notifications renders three NotificationItem elements', () => {
@@ -109,3 +90,23 @@ test('Notifications re-renders with a longer list of notifications', () => {
   // Check that the component re-rendered
   expect(wrapper.html()).toMatchSnapshot();
 });
+
+test('Default state for displayDrawer is false', () => {
+  const handleDisplayerDrawerMock = jest.fn();
+  const wrapper = shallow(<Notifications handleDisplayerDrawer={handleDisplayerDrawerMock} />);
+  wrapper.find(`.${css(styles.menuItems)}`).simulate('click');
+  expect(handleDisplayerDrawerMock).toHaveBeenCalled;
+});
+
+test('Clicking on the button calls handleHideDrawer', () => {
+  const handleHideDrawerMock = jest.fn();
+  const wrapper = shallow(<Notifications handleHideDrawer={handleHideDrawerMock} />);
+  wrapper.find('button').simulate('click');
+  expect(handleHideDrawerMock).toHaveBeenCalled();
+});
+
+test('Notifications renders without crashing', () => {
+  const wrapper = shallow(<Notifications />);
+  expect(wrapper.exists()).toBe(true);
+});
+
